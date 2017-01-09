@@ -6,21 +6,29 @@
     <script src="./scripts/script.js" charset="utf-8"></script>
     <link rel="stylesheet" href="./styles/style.css">
   </head>
-  <body>
+  <body ng-app='myApp'>
+    <div ng-controller='Hoth' ng-init='find()'>
     <h2>Hero Tracker</h2>
     <form id="stylized" class="myform">
       <label for="alias">Alias:</label>
-      <input type="text" name="alias" value="">
+      <input type="text" name="alias" value="" ng-model='aliasIn'>
       <label for="first">First Name:</label>
-      <input type="text" name="first" value="">
+      <input type="text" name="first" value="" ng-model='fNameIn'>
       <label for="last">Last Name:</label>
-      <input type="text" name="last" value="">
+      <input type="text" name="last" value="" ng-model='lNameIn'>
       <label for="city">City:</label>
-      <input type="text" name="city" value="">
+      <input type="text" name="city" value="" ng-model='cityIn'>
       <label for="power">Power:</label>
-      <input type="text" name="power" value="">
-      <button type="button" name="button">Add Hero</button>
+      <input type="text" name="power" value="" ng-model='powerIn'>
+      <button type="button" name="button" ng-click='addHero()'>Add Hero</button>
     </form>
-    <div><!-- Hero View All --></div>
+    <div ng-repeat='heros in collection'>
+      <strong>Alias:</strong> {{heros.alias}}
+      <strong>First Name:</strong> {{heros.first_name}}
+      <strong>Last Name:</strong> {{heros.last_name}}
+      <strong>City:</strong> {{heros.city}}
+      <strong>Power:</strong> {{heros.power_name}}
+    </div><!--end of display -->
+  </div> <!--end of controller -->
   </body>
 </html>
